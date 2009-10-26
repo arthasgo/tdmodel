@@ -27,4 +27,7 @@ Tdmodel will create a default ORM for it:
 model = DBLayer.orm("shops") # Shop will be created 
 shop = Shop.find :first
 
+5. gem dependencies
+magic_multi_connections
+
 Copyright (c) 2009 taobao, released under the MIT license
