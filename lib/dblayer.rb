@@ -1,0 +1,13 @@
+# Tdmodel
+require 'dblayer/orm'
+require 'dblayer/inspector'
+require 'dblayer/database'
+require 'dblayer/logical_data_model'
+require 'misc/deep_clone'
+require 'misc/yaml_sort_extension'
+require 'active_record/active_record'
+require 'active_record/column'
+require 'active_record/has_one_association'
+require 'active_record/has_many_association'
+require 'active_record/belongs_to_association'
+require 'active_record/mysql_adapter'

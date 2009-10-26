@@ -1,0 +1,28 @@
+﻿实例：
+models:
+  books:
+    primary_key: book_id
+    sequence_name: SEQ_BOOK_ID
+    associations:
+    - comments: has_many
+      options:
+        :foreign_key: book_id
+        :primary_key: book_id
+
+
+规则：
+1、一个数据模型文件，只有一个根节点，叫models，类型为hash
+
+2、models下的每个节点定义一个数据表，类型为hash
+
+3、每一个数据表，可以定义关联关系associations
+
+4、数据表可以拥有多个关联关系，所以，associations类型为数组
+
+5、associations数组中的每一个元素是一个hash，定义has_one/has_many/has_and_belongs_to_many/belongs_to关系，及关系的options选项；
+
+6、每一个关联，需要使用options定义关联的:foreign_key，:primary_key
+
+7、具有相同关联属性的多个表，可以放在一个关联hash中，例如上面的bmw_payment_account、bmw_users_extra
+
+8、另外，belongs_to关系可以不在数据模型中显示定义，tdmodel插件在解析数据模型文件时，会自动根据has_one/has_many创建belongs_to关系；

@@ -1,0 +1,30 @@
+Tdmodel
+=======
+Create ORM(Object-Relation Mapping) dynamic for legacy database defined in data model(a *.yml file);
+Create default ORM which is not defined in data model;
+Support concurrent multiple databases access by using magic_multi_connections gem;
+Support charset auto-transforming between rails utf8 and database local charset, such as GBK;
+
+Example
+=======
+refer to tdmodel_example which is located in example
+
+1. define data model
+<tdmodel_example>\config\legacy_db\dm.yml
+
+2. config legacy database
+<tdmodel_example>\config\legacy_db\db.yml
+
+3. Access legacy database defined in data model
+book = Book.find :first
+book = BOOK_DB1::Book.find :first
+book = BOOK_DB2::Book.find :first
+
+4. Access data table which is not defined in data model
+If there is a data table 'shops' in book_db1, but not defined in data model.
+Tdmodel will create a default ORM for it:
+
+model = DBLayer.orm("shops") # Shop will be created 
+shop = Shop.find :first
+
+Copyright (c) 2009 taobao, released under the MIT license
